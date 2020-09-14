@@ -205,12 +205,12 @@ def create_app(test_config=None):
         questions = Question.query.all()
         my_questions = []
         for question in questions:
-            found = False
-            for prev in previous_questions:
-                if prev == question.id:
-                    found = True
+            exsited = False
+            for p in previous_questions:
+                if p == question.id:
+                    exsited = True
                     break
-            if not found:
+            if not exsited:
                 my_questions.append(question)
         random_index = random.randint(0, len(my_questions)-1)
         return jsonify({

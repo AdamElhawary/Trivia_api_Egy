@@ -26,6 +26,7 @@ class QuestionView extends Component {
       url: `/questions?page=${this.state.page}`, //TODO: update request URL
       type: "GET",
       success: (result) => {
+        // console.log(result);
         this.setState({
           questions: result.questions,
           totalQuestions: result.total_questions,
@@ -63,6 +64,7 @@ class QuestionView extends Component {
       url: `/categories/${id}/questions`, //TODO: update request URL
       type: "GET",
       success: (result) => {
+        // console.log(result);
         this.setState({
           questions: result.questions,
           totalQuestions: result.total_questions,
@@ -78,7 +80,7 @@ class QuestionView extends Component {
 
   submitSearch = (searchTerm) => {
     $.ajax({
-      url: `/questions`, //TODO: update request URL
+      url: `/questions/${searchTerm}`, //TODO: update request URL
       type: "POST",
       dataType: 'json',
       contentType: 'application/json',
@@ -88,6 +90,7 @@ class QuestionView extends Component {
       },
       crossDomain: true,
       success: (result) => {
+        // console.log(result);
         this.setState({
           questions: result.questions,
           totalQuestions: result.total_questions,
@@ -126,9 +129,9 @@ class QuestionView extends Component {
           <h2 onClick={() => {this.getQuestions()}}>Categories</h2>
           <ul>
             {Object.keys(this.state.categories).map((id, ) => (
-              <li key={id} onClick={() => {this.getByCategory(id)}}>
+              <li className="categories-list-li" key={id} onClick={() => {this.getByCategory(id)}}>
                 {this.state.categories[id]}
-                <img className="category" src={`${this.state.categories[id]}.svg`}/>
+                <img className="category" alt=" " src={`${this.state.categories[id]}.svg`}/>
               </li>
             ))}
           </ul>
@@ -150,7 +153,6 @@ class QuestionView extends Component {
             {this.createPagination()}
           </div>
         </div>
-
       </div>
     );
   }

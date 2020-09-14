@@ -1,5 +1,14 @@
 body {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  height: 100%;
+  width:100%;
   font-family: sans-serif;
+  background-color: rgba(30, 143, 255, 0.247);
+}
+input , select{
+  border: none;
+  border-radius: 3px;
+  font-size: 1.3rem;
 }

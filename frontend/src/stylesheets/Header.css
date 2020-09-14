@@ -1,0 +1,16 @@
+.App-header h1 , .App-header h2{
+    cursor: pointer;
+}
+.App-header h1 >img {
+    width: 20%;
+}
+.App-header h1{
+    display: flex;
+    align-items: center;
+}
+.App-header h1:hover{
+    color: white;
+}
+.App-header h2:hover{
+    color: dodgerblue;
+}
